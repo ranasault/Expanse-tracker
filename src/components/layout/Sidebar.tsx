@@ -8,8 +8,11 @@ import {
   PieChart, 
   PlusCircle, 
   Settings, 
-  Wallet 
+  Wallet,
+  LogOut
 } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { toast } from "sonner";
 
 type SidebarItem = {
   name: string;
@@ -20,6 +23,13 @@ type SidebarItem = {
 export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, logout } = useAuth();
+  
+  const handleLogout = () => {
+    logout();
+    toast.success("Logged out successfully");
+    navigate("/login");
+  };
   
   const sidebarItems: SidebarItem[] = [
     {
@@ -88,12 +98,21 @@ export default function Sidebar() {
       <div className="p-4 border-t border-border">
         <div className="flex items-center gap-3 py-2">
           <div className="h-10 w-10 rounded-full bg-expense-light-purple/20 flex items-center justify-center text-expense-purple">
-            JD
+            {user?.name?.charAt(0).toUpperCase() || "U"}
           </div>
-          <div>
-            <p className="font-medium">John Doe</p>
-            <p className="text-xs text-gray-500">john@example.com</p>
+          <div className="flex-1">
+            <p className="font-medium">{user?.name || "User"}</p>
+            <p className="text-xs text-gray-500">{user?.email || "user@example.com"}</p>
           </div>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={handleLogout}
+            className="text-expense-red"
+            title="Logout"
+          >
+            <LogOut className="h-5 w-5" />
+          </Button>
         </div>
       </div>
     </div>
