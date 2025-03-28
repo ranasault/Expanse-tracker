@@ -34,8 +34,8 @@ import { toast } from "sonner";
 export default function Transactions() {
   const { transactions, categories, deleteTransaction } = useExpenseStore();
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
-  const [typeFilter, setTypeFilter] = useState<string>("");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [typeFilter, setTypeFilter] = useState<string>("all");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState<string | null>(null);
 
@@ -46,10 +46,10 @@ export default function Transactions() {
       transaction.amount.toString().includes(searchTerm);
       
     const matchesCategory = 
-      categoryFilter === "" || transaction.category.id === categoryFilter;
+      categoryFilter === "all" || transaction.category.id === categoryFilter;
       
     const matchesType = 
-      typeFilter === "" || transaction.type === typeFilter;
+      typeFilter === "all" || transaction.type === typeFilter;
       
     return matchesSearch && matchesCategory && matchesType;
   });
@@ -98,7 +98,7 @@ export default function Transactions() {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map((category) => (
                   <SelectItem key={category.id} value={category.id}>
                     {category.name}
@@ -112,7 +112,7 @@ export default function Transactions() {
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
+                <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value="income">Income</SelectItem>
                 <SelectItem value="expense">Expense</SelectItem>
               </SelectContent>

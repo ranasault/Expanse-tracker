@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { Plus, Edit, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
 export default function Budget() {
   const { budgets, categories, addBudget, updateBudget, deleteBudget } = useExpenseStore();
@@ -139,8 +140,7 @@ export default function Budget() {
                   
                   <Progress 
                     value={Math.min(percentage, 100)} 
-                    className={isOverBudget ? "bg-expense-red/20" : ""}
-                    indicatorClassName={isOverBudget ? "bg-expense-red" : ""}
+                    className={cn(isOverBudget ? "bg-expense-red/20" : "")}
                   />
                   
                   <div className="flex justify-between items-center">
