@@ -1,22 +1,26 @@
-# Welcome to your Lovable project
+The Expense Tracker App is a modern, responsive web application designed to help users manage their personal finances with ease. It allows users to log income and expenses, categorize transactions, and view visual summaries of their financial activity over time.
 
-## Project info
+Built with a sleek and minimal user interface, the app focuses on usability and real-time insights. Users can set budgets, track balances instantly, and analyze spending trends through intuitive chart visualizations.
 
-**URL**: https://lovable.dev/projects/366cf304-245e-41e5-b3a7-3a2e958c9f72
+Whether you're planning a monthly budget or simply trying to stay on top of your expenses, this app offers a simple and effective solution — right from your browser.
 
-## How can I edit this code?
+Key Highlights
+Add and manage income and expenses
 
-There are several ways of editing your application.
+Categorize transactions for better organization
 
-**Use Lovable**
+View real-time balance updates
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/366cf304-245e-41e5-b3a7-3a2e958c9f72) and start prompting.
+Get budget alerts for overspending
 
-Changes made via Lovable will be committed automatically to this repo.
+Visualize financial trends with interactive charts
 
-**Use your preferred IDE**
+Fully responsive design optimized for mobile and desktop
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Data persistence using LocalStorage
+
+
+
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
